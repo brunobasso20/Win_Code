@@ -1,0 +1,50 @@
+/* === PÁGINA DE SERVIÇOS === */
+.page-header {
+  background-color: var(--color-dark);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+.page-header h1 {
+  color: white;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 4rem 5%;
+}
+
+.service-card {
+  background: var(--color-bg);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: var(--color-secondary);
+}
+
+/* Acessibilidade específica */
+@media (prefers-reduced-motion: reduce) {
+  .service-card {
+    transition: none;
+  }
+}

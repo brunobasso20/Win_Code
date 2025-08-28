@@ -1,0 +1,75 @@
+/* === PÁGINA DE DETALHE DE SERVIÇO (SPLIT SCREEN) === */
+.split-screen-container {
+  display: flex;
+  width: 100%;
+  background-color: #f4f7f6;
+}
+
+.split-panel {
+  flex: 1;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.panel-left {
+  background-color: var(--color-bg);
+}
+.panel-right {
+  background-color: #f9f9f9;
+}
+
+.split-screen-container:hover .panel-left {
+  transform: translateX(-10px);
+}
+.split-screen-container:hover .panel-right {
+  transform: translateX(10px);
+}
+
+.text-block {
+  margin-bottom: 2rem;
+}
+.text-block h3 {
+  color: var(--color-primary);
+}
+
+.split-image {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Page-header (similar a privacy) */
+.page-header {
+  background-color: var(--color-dark);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+.page-header h1 {
+  color: white;
+}
+
+/* Responsividade específica */
+@media (max-width: 768px) {
+  .split-screen-container {
+    flex-direction: column;
+  }
+  .split-screen-container:hover .panel-left,
+  .split-screen-container:hover .panel-right {
+    transform: none;
+  }
+  .split-panel {
+    padding: 2rem;
+  }
+}
+
+/* Acessibilidade específica */
+@media (prefers-reduced-motion: reduce) {
+  .split-panel {
+    transition: none;
+  }
+}

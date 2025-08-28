@@ -1,0 +1,253 @@
+/* === SISTEMA DE DESIGN GLOBAL === */
+:root {
+  --color-primary: #41c4bb;
+  --color-secondary: #ed5f28;
+  --color-dark: #0e353f;
+  --color-text: #333333;
+  --color-bg: #ffffff;
+  --color-whatsapp: #25d366;
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Open Sans", sans-serif;
+}
+
+/* === RESET E ESTILOS BASE === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%; /* Garante altura total para flexbox funcionar */
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  display: flex; /* Transforma body em flex container vertical */
+  flex-direction: column;
+  min-height: 100vh; /* Altura mínima da viewport */
+}
+
+main {
+  flex: 1; /* Main cresce para preencher o espaço, empurrando footer para baixo */
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+h2 {
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+.page-content {
+  /* Sem padding-top, navbar principal é estática */
+}
+
+/* === NAVBAR === */
+#navbar,
+#navbar-secondary {
+  background-color: var(--color-dark);
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  height: 80px;
+  overflow: hidden; /* Corta excesso da logo */
+}
+
+#navbar {
+  position: static; /* Estática, rola com a página */
+}
+
+#navbar-secondary {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease-in-out;
+}
+
+#navbar-secondary.visible {
+  transform: translateY(0);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* Impede que o container expanda */
+  overflow: hidden; /* Corta excesso */
+  max-width: 150px; /* Limita a largura do container da logo */
+}
+
+.nav-logo a {
+  display: inline-block;
+}
+
+/* === LOGO === */
+.nav-logo img {
+  height: 100px;
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  position: relative;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* === CTA BUTTON (usado em múltiplas páginas) === */
+.cta-button {
+  background-color: var(--color-secondary);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  background-color: #d45120;
+}
+
+/* === FOOTER === */
+footer {
+  background-color: var(--color-dark);
+  color: white;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  flex-shrink: 0; /* Previna encolhimento no flex container */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-link {
+  color: white;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.footer-link:hover {
+  color: var(--color-primary);
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-right p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-copyright {
+  text-align: center;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  max-width: 1100px;
+  margin: 1rem auto 0;
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .nav-links {
+    display: none; /* Simplificar para um menu hamburguer em um projeto real */
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-left {
+    margin-bottom: 1rem;
+  }
+
+  .footer-right {
+    text-align: center;
+  }
+}
+
+/* === ACESSIBILIDADE === */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  #navbar-secondary,
+  .nav-links li a::after,
+  .cta-button {
+    transition: none;
+  }
+}

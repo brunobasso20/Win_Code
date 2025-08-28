@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autenticação - Win Code</title>
+    <!-- CSS global do site -->
+    <link rel="stylesheet" href="css/globals.css" />
+    <!-- CSS específico para auth -->
+    <link rel="stylesheet" href="css/login.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <div class="nav-logo">
+          <a href="index.html"
+            ><img src="images/logo.svg" alt="Logo Win Code"
+          /></a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">INÍCIO</a></li>
+          <li><a href="services.html">SERVIÇOS</a></li>
+          <li><a href="#FaleConosco">FALE CONOSCO</a></li>
+        </ul>
+      </nav>
+      <nav id="navbar-secondary">
+        <div class="nav-logo">
+          <a href="index.html"
+            ><img src="images/logo.svg" alt="Logo Win Code"
+          /></a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">INÍCIO</a></li>
+          <li><a href="services.html">SERVIÇOS</a></li>
+          <li><a href="#FaleConosco">FALE CONOSCO</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="auth-section">
+        <div class="container">
+          <h2>Autenticação</h2>
+          <div class="tabs">
+            <button class="tab-button active" onclick="showSection('login')">
+              Login
+            </button>
+            <button class="tab-button" onclick="showSection('register')">
+              Registro
+            </button>
+          </div>
+
+          <!-- Seção de Login -->
+          <form id="login-form" class="auth-form">
+            <input type="email" id="login-email" placeholder="Email" required />
+            <input
+              type="password"
+              id="login-password"
+              placeholder="Senha"
+              required
+            />
+            <button type="submit" class="cta-button">Entrar</button>
+            <p id="login-message"></p>
+          </form>
+
+          <!-- Seção de Registro -->
+          <form id="register-form" class="auth-form" style="display: none">
+            <input
+              type="email"
+              id="register-email"
+              placeholder="Email"
+              required
+            />
+            <input
+              type="password"
+              id="register-password"
+              placeholder="Senha"
+              required
+              minlength="6"
+            />
+            <button type="submit" class="cta-button">Registrar</button>
+            <p id="register-message"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-left">
+          <a href="services.html" class="footer-link">Soluções/Serviços</a>
+          <a href="privacy.html" class="footer-link">Privacy Policy</a>
+        </div>
+        <div class="footer-right">
+          <p>
+            R. Santa Catarina, 5736 - Vila Gaúcha, Mal. Cândido Rondon - PR,
+            85960-000
+          </p>
+          <p>(45) 3284-4200</p>
+          <p>contato@wincode.com.br</p>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        © 2024 Win Code. Todos os direitos reservados.
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- CDN para Supabase -->
+    <script src="js/auth.js"></script>
+    <!-- Script específico para auth (renomeado de script.js para clareza) -->
+    <script src="js/main.js"></script>
+    <!-- Script global do site, para navbar etc. -->
+  </body>
+</html>

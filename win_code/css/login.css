@@ -1,0 +1,78 @@
+/* Estilos específicos para a página de autenticação */
+
+/* Seção de Autenticação */
+.auth-section {
+  padding: 5rem 0;
+  background-color: #f9f9f9; /* Fundo similar à seção "Sobre Nós" */
+  text-align: center;
+}
+
+.auth-section h2 {
+  color: var(--color-dark);
+  margin-bottom: 2rem;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  background-color: var(--color-dark);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.tab-button.active {
+  background-color: var(--color-secondary);
+}
+
+.tab-button:hover {
+  background-color: var(--color-primary);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.auth-form input {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: var(--font-body);
+}
+
+.auth-form button {
+  /* Usa cta-button do globals */
+}
+
+.auth-form p {
+  margin-top: 1rem;
+  color: red; /* Para mensagens de erro */
+  font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .auth-section {
+    padding: 3rem 1rem;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab-button {
+    margin-bottom: 0.5rem;
+  }
+}
