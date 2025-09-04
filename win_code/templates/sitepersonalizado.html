@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Site Personalizado - Win Code</title>
-    <link rel="stylesheet" href="css/glovals.css" />
-    <link rel="stylesheet" href="css/sitepersonalizado.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/globals.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/sitepersonalizado.css') }}"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,7 +28,9 @@
       <nav id="navbar">
         <div class="nav-logo">
           <a href="index.html"
-            ><img src="images/logo.svg" alt="Logo Win Code"
+            ><img
+              src="{{ url_for('static', filename='images/logo.svg') }}"
+              alt="Logo Win Code"
           /></a>
         </div>
         <ul class="nav-links">
@@ -33,7 +41,11 @@
       </nav>
       <nav id="navbar-secondary">
         <div class="nav-logo">
-          <a href="index.html"><strong>Win Code</strong></a>
+          <a href="index.html"
+            ><img
+              src="{{ url_for('static', filename='images/logo.svg') }}"
+              alt="Logo Win Code"
+          /></a>
         </div>
         <ul class="nav-links">
           <li><a href="index.html">INÍCIO</a></li>
@@ -96,6 +108,33 @@
       </section>
     </main>
 
+    <!-- Indicador de status do produto -->
+    <div
+      id="product-status"
+      style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: sans-serif;
+        font-weight: bold;
+        z-index: 9999;
+      "
+    >
+      <div
+        id="status-circle"
+        style="
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background-color: gray;
+        "
+      ></div>
+      <span id="status-text">Carregando...</span>
+    </div>
+
     <footer>
       <div class="footer-container">
         <div class="footer-left">
@@ -116,6 +155,41 @@
       </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="static/js/main.js"></script>
   </body>
 </html>
+
+<script>
+  async function loadProductStatus() {
+    try {
+      const response = await fetch("/api/check_product/sitepersonalizado", {
+        method: "GET",
+        credentials: "same-origin", // envia cookies de sessão
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) throw new Error("Falha ao consultar status");
+
+      const data = await response.json();
+      const isActive = data.sitepersonalizado_is_active;
+
+      const circle = document.getElementById("status-circle");
+      const text = document.getElementById("status-text");
+
+      if (isActive) {
+        circle.style.backgroundColor = "green";
+        text.textContent = "Ativo";
+      } else {
+        circle.style.backgroundColor = "red";
+        text.textContent = "Não ativado";
+      }
+    } catch (err) {
+      console.error("Erro ao carregar status do produto:", err);
+    }
+  }
+
+  // Executa ao carregar a página
+  document.addEventListener("DOMContentLoaded", loadProductStatus);
+</script>

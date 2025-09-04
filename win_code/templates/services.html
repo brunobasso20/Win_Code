@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nossos Serviços - Win Code</title>
-    <link rel="stylesheet" href="css/globals.css" />
-    <link rel="stylesheet" href="css/services.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/globals.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/services.css') }}"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,7 +28,9 @@
       <nav id="navbar">
         <div class="nav-logo">
           <a href="index.html"
-            ><img src="images/logo.svg" alt="Logo Win Code"
+            ><img
+              src="{{ url_for('static', filename='images/logo.svg') }}"
+              alt="Logo Win Code"
           /></a>
         </div>
         <ul class="nav-links">
@@ -33,7 +41,11 @@
       </nav>
       <nav id="navbar-secondary">
         <div class="nav-logo">
-          <a href="index.html"><strong>Win Code</strong></a>
+          <a href="index.html"
+            ><img
+              src="{{ url_for('static', filename='images/logo.svg') }}"
+              alt="Logo Win Code"
+          /></a>
         </div>
         <ul class="nav-links">
           <li><a href="index.html">INÍCIO</a></li>
@@ -187,6 +199,6 @@
       </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="static/js/main.js"></script>
   </body>
 </html>
