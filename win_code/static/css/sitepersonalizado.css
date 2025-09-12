@@ -76,8 +76,9 @@
 
 #product-status {
   position: fixed;
-  top: 20px;
+  top: 50%;
   right: 20px;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -91,4 +92,19 @@
   height: 16px;
   border-radius: 50%;
   background-color: gray; /* padrão */
+}
+
+#buy-product-container {
+  position: relative; /* mantém no fluxo da página */
+  text-align: center;
+  margin: 2rem auto; /* centraliza acima do footer */
+}
+
+#buy-product-btn {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#buy-product-btn:hover {
+  transform: scale(1.05);
+  background-color: #d45120; /* mesma cor do hover de .cta-button */
 }

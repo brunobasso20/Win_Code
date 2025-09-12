@@ -27,28 +27,28 @@
     <header>
       <nav id="navbar">
         <div class="nav-logo">
-          <a href="index.html"
+          <a href="{{ url_for('index') }}"
             ><img
               src="{{ url_for('static', filename='images/logo.svg') }}"
               alt="Logo Win Code"
           /></a>
         </div>
         <ul class="nav-links">
-          <li><a href="index.html">INÍCIO</a></li>
+          <li><a href="{{ url_for('index') }}">INÍCIO</a></li>
           <li><a href="services.html">SERVIÇOS</a></li>
           <li><a href="index.html#FaleConosco">FALE CONOSCO</a></li>
         </ul>
       </nav>
       <nav id="navbar-secondary">
         <div class="nav-logo">
-          <a href="index.html"
+          <a href="{{ url_for('index') }}"
             ><img
               src="{{ url_for('static', filename='images/logo.svg') }}"
               alt="Logo Win Code"
           /></a>
         </div>
         <ul class="nav-links">
-          <li><a href="index.html">INÍCIO</a></li>
+          <li><a href="{{ url_for('index') }}">INÍCIO</a></li>
           <li><a href="services.html">SERVIÇOS</a></li>
           <li><a href="index.html#FaleConosco">FALE CONOSCO</a></li>
         </ul>

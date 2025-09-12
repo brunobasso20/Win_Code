@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagamento Aprovado - Win Code</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/globals.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <div class="nav-logo">
+          <a href="{{ url_for('index') }}">
+            <img
+              src="{{ url_for('static', filename='images/logo.svg') }}"
+              alt="Logo Win Code"
+            />
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('index') }}">INÍCIO</a></li>
+          <li><a href="{{ url_for('services') }}">SERVIÇOS</a></li>
+          <li><a href="{{ url_for('index') }}#FaleConosco">FALE CONOSCO</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="page-content">
+      <div class="container" style="text-align: center; padding: 5rem 2rem">
+        <h1 style="color: var(--color-primary)">Pagamento Concluído!</h1>
+        <p style="font-size: 1.2rem; margin: 2rem 0">
+          Obrigado por adquirir o Site Personalizado. Seu produto já está ativo
+          e pronto para uso.
+        </p>
+        <a href="{{ url_for('sitepersonalizado') }}" class="cta-button"
+          >Acessar Produto</a
+        >
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-left">
+          <a href="{{ url_for('services') }}" class="footer-link"
+            >Soluções/Serviços</a
+          >
+          <a href="{{ url_for('privacy') }}" class="footer-link"
+            >Privacy Policy</a
+          >
+        </div>
+        <div class="footer-right">
+          <p>
+            R. Santa Catarina, 5736 - Vila Gaúcha, Mal. Cândido Rondon - PR,
+            85960-000
+          </p>
+          <p>(45) 3284-4200</p>
+          <p>contato@wincode.com.br</p>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        © 2024 Win Code. Todos os direitos reservados.
+      </div>
+    </footer>
+  </body>
+</html>
